@@ -35,7 +35,6 @@ export function Features() {
 
   return (
     <section id="features" className="features-section bg-[#fafafa] relative z-10 px-6 pb-12 lg:px-8 lg:pb-20">
-      {/* Tiêu đề - chỉ hiện trên mobile, tĩnh như bình thường (bản desktop nằm trong lưới bên dưới) */}
       <div className="md:hidden max-w-7xl mx-auto pt-12 pb-10">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
@@ -48,12 +47,6 @@ export function Features() {
       </div>
 
       <div className="hidden md:grid md:grid-cols-[1.05fr_0.95fr] max-w-6xl mx-auto relative gap-18 items-stretch">
-        {/* Tiêu đề - span cả 2 cột, dính chung khung với ảnh/chữ nên cuộn vào/ra đồng bộ với nhau.
-            mb-[58vh] (vô hình, dùng margin chứ không phải padding nên không che ảnh phía dưới):
-            khối ảnh/chữ cần ~top-180px + cao 64vh mới "hết chỗ" để nhả sticky, trong khi tiêu đề
-            tự nhiên chỉ cao ~150-200px nên nhả trễ hơn nhiều -> thêm margin-bottom để tiêu đề
-            cũng cần một lượng không gian tương đương, giúp 2 khối nhả sticky gần như cùng lúc
-            khi thoát khỏi feature 6. Nếu vẫn lệch, chỉnh tăng/giảm số vh này. */}
         <div className="sticky top-0 z-20 self-start bg-[#fafafa] pt-12 lg:pt-20 pb-6 mb-[58vh] lg:mb-[60vh] md:col-start-1 md:col-span-2 md:row-start-1">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
@@ -65,9 +58,6 @@ export function Features() {
           </div>
         </div>
 
-        {/* Ảnh - dính lại khi cuộn, đổi theo mục đang active (giữ nguyên cơ chế cũ)
-            mt-[180px] để vị trí "chưa dính" (lúc mới vào feature 1 / sắp thoát feature 6)
-            đã nằm sẵn dưới tiêu đề, không bị tiêu đề đè lên trong lúc chuyển tiếp */}
         <div className="sticky top-[180px] lg:top-[212px] mt-[180px] lg:mt-[212px] h-[64vh] md:col-start-1 md:row-start-1 flex items-center justify-center overflow-hidden">
           <div className="relative w-full max-w-[750px] aspect-[4/3] rounded-[2rem] overflow-hidden">
             {featureBlocks.map((feature, index) => {
@@ -95,8 +85,6 @@ export function Features() {
           </div>
         </div>
 
-        {/* Track ẩn: không hiển thị gì, chỉ tạo chiều dài cuộn tương ứng 6 mục
-            và kích hoạt observer để biết mục nào đang active */}
         <div className="md:col-start-2 md:row-start-1 flex flex-col">
           {featureBlocks.map((feature, index) => (
             <div
@@ -107,15 +95,9 @@ export function Features() {
               className="min-h-[52vh]"
             />
           ))}
-          {/* Đệm cuối: không gắn ref (không tính vào observer), chỉ tạo thêm
-              chiều dài cuộn để feature cuối (feature 6) có đủ chỗ "nhả" sticky
-              một cách mượt mà, tránh bị giật/che khi thoát khỏi section */}
           <div aria-hidden className="min-h-[30vh]" />
         </div>
 
-        {/* Chữ - giờ cũng dính lại (sticky) y hệt ảnh, đổi nội dung theo mục
-            đang active thay vì cuộn qua như trước.
-            mt-[180px] để đồng bộ với khối ảnh, tránh bị tiêu đề đè lúc vào/ra feature 1,6 */}
         <div className="sticky top-[180px] lg:top-[212px] mt-[180px] lg:mt-[212px] h-[64vh] md:col-start-2 md:row-start-1 flex items-center justify-start">
           <div className="relative w-full max-w-md h-full">
             {featureBlocks.map((feature, index) => {
@@ -163,7 +145,7 @@ export function Features() {
                 src={feature.image}
                 alt={feature.title}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
