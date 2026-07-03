@@ -81,10 +81,10 @@ export function NewsletterForm() {
           ) : null}
         </form>
       </div>
-      
+
       {toast && (
         <div
-          className={`fixed top-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-4 shadow-2xl transition-all duration-300 animate-in slide-in-from-top-5 fade-in ${
+          className={`fixed top-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-4 shadow-2xl transition-all duration-300 toast-enter ${
             toast.type === "success"
               ? "bg-white border-l-4 border-emerald-500 text-text-heading"
               : "bg-white border-l-4 border-red-500 text-text-heading"

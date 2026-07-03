@@ -18,7 +18,7 @@ export function Hero() {
             <span className="h-px w-24 bg-primary-blue/30" />
           </div>
           <h1 className="mt-8 text-3xl font-semibold leading-[1.1] tracking-tight text-text-heading sm:text-4xl lg:text-5xl">
-            Hiệu năng đột phá. Sức mạnh chip M5.
+            Sức mạnh đột phá, bứt phá mọi giới hạn cùng chip M5.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-7 text-text-body sm:text-lg sm:leading-8">
             Tạo ra trải nghiệm làm việc liền mạch, sáng tạo không giới hạn và hiệu suất vượt trội trong một thiết kế mỏng nhẹ, tinh tế.

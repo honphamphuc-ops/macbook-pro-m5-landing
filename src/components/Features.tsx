@@ -2,59 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
-interface FeatureBlock {
-  id: number;
-  order: string;
-  title: string;
-  description: string;
-  image: string;
-}
-
-const featureBlocks: FeatureBlock[] = [
-  {
-    id: 1,
-    order: "01",
-    title: "Chip Apple M5 vươn tầm",
-    description: "CPU 10 nhân, GPU 10 nhân tích hợp Neural Accelerator mạnh mẽ, tối ưu hoàn hảo cho các tác vụ trí tuệ nhân tạo (AI) thế hệ mới.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044657/ast8bcftzgpx8dkotsyv.webp",
-  },
-  {
-    id: 2,
-    order: "02",
-    title: "Màn hình Liquid Retina XDR",
-    description: "Kích thước 14.2 inch, độ sáng cực đỉnh 1600 nits cùng tỷ lệ tương phản 1.000.000:1 mang lại trải nghiệm thị giác sống động.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044699/zd8icpbkff7yb1vf4qzd.webp",
-  },
-  {
-    id: 3,
-    order: "03",
-    title: "Thời lượng pin chạm đỉnh",
-    description: "Sẵn sàng đồng hành cùng bạn suốt 24 giờ liên tục. Làm việc, giải trí và sáng tạo bất tận mà không cần mang theo bộ sạc.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044744/gqs2omkrifn4kdwmjokb.webp",
-  },
-  {
-    id: 4,
-    order: "04",
-    title: "Camera Center Stage & Âm thanh",
-    description: "Camera Center Stage 12MP thông minh tự động kết nối khung hình, hòa quyện cùng hệ thống 6 loa Spatial Audio đỉnh cao.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044630/rdgjwc2huuscdykjxsw5.webp",
-  },
-  {
-    id: 5,
-    order: "05",
-    title: "Kết nối không giới hạn",
-    description: "Trang bị Wi-Fi 6E siêu tốc, kết hợp bộ ba cổng kết nối Thunderbolt 4, HDMI mang lại sự linh hoạt tối đa cho mọi công việc.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044655/mgouslv4awzjpft8ep7j.webp",
-  },
-  {
-    id: 6,
-    order: "06",
-    title: "Bảo mật & Trải nghiệm gõ",
-    description: "Cảm biến một chạm Touch ID an toàn, kết hợp bàn phím Magic Keyboard êm ái cùng trackpad Force Touch phản hồi chính xác.",
-    image: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783044640/p5cijux4b8401znskdpf.webp",
-  },
-];
+import { featureBlocks } from "@/lib/constants";
 
 export function Features() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -63,7 +11,7 @@ export function Features() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-45% 0px -45% 0px",
+      rootMargin: "-38% 0px -38% 0px",
       threshold: 0,
     };
 
@@ -86,20 +34,41 @@ export function Features() {
   }, []);
 
   return (
-    <section id="features" className="features-section bg-[#fafafa] relative z-10 px-6 py-12 lg:px-8 lg:py-20">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="features-section bg-[#fafafa] relative z-10 px-6 pb-12 lg:px-8 lg:pb-20">
+      {/* Tiêu đề - chỉ hiện trên mobile, tĩnh như bình thường (bản desktop nằm trong lưới bên dưới) */}
+      <div className="md:hidden max-w-7xl mx-auto pt-12 pb-10">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
             Tính năng nổi bật
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-heading sm:text-4xl">
-            Thiết kế cho hiệu suất. Không thỏa hiệp.
+            Giao thoa hoàn mỹ giữa thiết kế đẳng cấp và hiệu năng không thỏa hiệp.
           </h2>
         </div>
       </div>
 
       <div className="hidden md:grid md:grid-cols-[1.05fr_0.95fr] max-w-6xl mx-auto relative gap-18 items-stretch">
-        <div className="sticky top-[12vh] h-[76vh] flex items-center justify-center overflow-hidden">
+        {/* Tiêu đề - span cả 2 cột, dính chung khung với ảnh/chữ nên cuộn vào/ra đồng bộ với nhau.
+            mb-[58vh] (vô hình, dùng margin chứ không phải padding nên không che ảnh phía dưới):
+            khối ảnh/chữ cần ~top-180px + cao 64vh mới "hết chỗ" để nhả sticky, trong khi tiêu đề
+            tự nhiên chỉ cao ~150-200px nên nhả trễ hơn nhiều -> thêm margin-bottom để tiêu đề
+            cũng cần một lượng không gian tương đương, giúp 2 khối nhả sticky gần như cùng lúc
+            khi thoát khỏi feature 6. Nếu vẫn lệch, chỉnh tăng/giảm số vh này. */}
+        <div className="sticky top-0 z-20 self-start bg-[#fafafa] pt-12 lg:pt-20 pb-6 mb-[58vh] lg:mb-[60vh] md:col-start-1 md:col-span-2 md:row-start-1">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
+              Tính năng nổi bật
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-heading sm:text-4xl">
+              Giao thoa hoàn mỹ giữa thiết kế đẳng cấp và hiệu năng không thỏa hiệp.
+            </h2>
+          </div>
+        </div>
+
+        {/* Ảnh - dính lại khi cuộn, đổi theo mục đang active (giữ nguyên cơ chế cũ)
+            mt-[180px] để vị trí "chưa dính" (lúc mới vào feature 1 / sắp thoát feature 6)
+            đã nằm sẵn dưới tiêu đề, không bị tiêu đề đè lên trong lúc chuyển tiếp */}
+        <div className="sticky top-[180px] lg:top-[212px] mt-[180px] lg:mt-[212px] h-[64vh] md:col-start-1 md:row-start-1 flex items-center justify-center overflow-hidden">
           <div className="relative w-full max-w-[750px] aspect-[4/3] rounded-[2rem] overflow-hidden">
             {featureBlocks.map((feature, index) => {
               const isActive = activeImageIndex === index;
@@ -126,20 +95,38 @@ export function Features() {
           </div>
         </div>
 
-        <div className="bg-transparent flex flex-col justify-center">
-          {featureBlocks.map((feature, index) => {
-            const isActive = activeImageIndex === index;
-            return (
-              <div
-                key={feature.id}
-                ref={(el) => {
-                  featureRefs.current[index] = el;
-                }}
-                className="min-h-[70vh] flex items-center justify-start"
-              >
+        {/* Track ẩn: không hiển thị gì, chỉ tạo chiều dài cuộn tương ứng 6 mục
+            và kích hoạt observer để biết mục nào đang active */}
+        <div className="md:col-start-2 md:row-start-1 flex flex-col">
+          {featureBlocks.map((feature, index) => (
+            <div
+              key={feature.id}
+              ref={(el) => {
+                featureRefs.current[index] = el;
+              }}
+              className="min-h-[52vh]"
+            />
+          ))}
+          {/* Đệm cuối: không gắn ref (không tính vào observer), chỉ tạo thêm
+              chiều dài cuộn để feature cuối (feature 6) có đủ chỗ "nhả" sticky
+              một cách mượt mà, tránh bị giật/che khi thoát khỏi section */}
+          <div aria-hidden className="min-h-[30vh]" />
+        </div>
+
+        {/* Chữ - giờ cũng dính lại (sticky) y hệt ảnh, đổi nội dung theo mục
+            đang active thay vì cuộn qua như trước.
+            mt-[180px] để đồng bộ với khối ảnh, tránh bị tiêu đề đè lúc vào/ra feature 1,6 */}
+        <div className="sticky top-[180px] lg:top-[212px] mt-[180px] lg:mt-[212px] h-[64vh] md:col-start-2 md:row-start-1 flex items-center justify-start">
+          <div className="relative w-full max-w-md h-full">
+            {featureBlocks.map((feature, index) => {
+              const isActive = activeImageIndex === index;
+              return (
                 <div
-                  className={`w-full max-w-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
-                    isActive ? "translate-x-0 opacity-100" : "translate-x-0 opacity-20"
+                  key={feature.id}
+                  className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isActive
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 translate-y-2 pointer-events-none"
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -159,9 +146,9 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -180,9 +167,6 @@ export function Features() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-              <span className="absolute bottom-4 left-4 rounded-full bg-white/80 px-3 py-1 text-xs font-bold text-text-heading backdrop-blur-md">
-                {feature.order}
-              </span>
             </div>
 
             <div className="w-full">
