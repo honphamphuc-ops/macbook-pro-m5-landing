@@ -43,7 +43,7 @@ export function NewsletterForm() {
 
   return (
     <section id="newsletter" className="relative bg-background-alt px-6 py-12 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-border-custom bg-white p-8 shadow-sm sm:p-10 lg:p-12">
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-border-custom bg-background p-8 shadow-sm sm:p-10 lg:p-12">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
             Nhận thông tin mới
@@ -71,7 +71,7 @@ export function NewsletterForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="min-w-max rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2563eb] disabled:cursor-not-allowed disabled:opacity-70 whitespace-nowrap"
+              className="min-w-max rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-blue/90 disabled:cursor-not-allowed disabled:opacity-70 whitespace-nowrap"
             >
               {isSubmitting ? "Đang gửi..." : "Đăng ký"}
             </button>
@@ -86,8 +86,8 @@ export function NewsletterForm() {
         <div
           className={`fixed top-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-4 shadow-2xl transition-all duration-300 toast-enter ${
             toast.type === "success"
-              ? "bg-white border-l-4 border-emerald-500 text-text-heading"
-              : "bg-white border-l-4 border-red-500 text-text-heading"
+              ? "bg-background border-l-4 border-emerald-500 text-text-heading"
+              : "bg-background border-l-4 border-red-500 text-text-heading"
           }`}
         >
           <p className="text-sm font-medium">{toast.message}</p>

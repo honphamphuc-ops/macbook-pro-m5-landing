@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 type NavItem = {
   id: string;
@@ -83,7 +84,7 @@ export function Navbar() {
         onClick={() => setIsMobileMenuOpen((current) => !current)}
         aria-expanded={isMobileMenuOpen}
         aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"}
-        className="fixed right-5 z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-border-custom bg-white/90 shadow-md backdrop-blur-md transition-transform duration-200 ease-out active:scale-90 lg:hidden"
+        className="fixed right-5 z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-border-custom bg-background/90 shadow-md backdrop-blur-md transition-transform duration-200 ease-out active:scale-90 lg:hidden"
         style={{ top: "max(1.25rem, env(safe-area-inset-top))" }}
       >
         <span
@@ -103,10 +104,18 @@ export function Navbar() {
         />
       </button>
 
+      {/* Mobile-visible theme toggle (always visible on small screens) */}
+      <div
+        className="fixed right-16 z-[60] flex h-11 w-11 items-center justify-center rounded-full border border-border-custom bg-background/90 shadow-md backdrop-blur-md lg:hidden"
+        style={{ top: "max(1.25rem, env(safe-area-inset-top))" }}
+      >
+        <ThemeToggle className="text-lg" />
+      </div>
+
       {/* Overlay full-screen: chuyển động scale + blur thay vì chỉ opacity,
           các mục menu xuất hiện tuần tự (stagger) để đỡ trống trải và mượt hơn */}
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-white/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+        className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-background/95 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
           isMobileMenuOpen ? "visible scale-100 opacity-100" : "invisible scale-95 opacity-0"
         }`}
       >
@@ -153,6 +162,9 @@ export function Navbar() {
         aria-label="Điều hướng trang"
         className="hidden lg:fixed lg:right-6 lg:top-1/2 lg:z-50 lg:flex lg:-translate-y-1/2 lg:flex-col lg:items-end lg:gap-7"
       >
+        <div className="mb-3">
+          <ThemeToggle />
+        </div>
         {navItems.map((item) => {
           const isActive = activeId === item.id;
 
@@ -173,7 +185,7 @@ export function Navbar() {
               </span>
               <span
                 className={`h-[4px] rounded-full transition-all duration-300 ${
-                  isActive ? "w-12 bg-primary-blue" : "w-6 bg-[#E5E9F0]"
+                  isActive ? "w-12 bg-primary-blue" : "w-6 bg-border-custom"
                 }`}
               />
             </button>

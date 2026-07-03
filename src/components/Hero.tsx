@@ -5,7 +5,7 @@ const heroImageUrl =
 
 export function Hero() {
   return (
-    <section id="top" className="px-6 py-12 lg:px-8 lg:py-20">
+    <section id="top" className="bg-background-alt px-6 py-12 lg:px-8 lg:py-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
         <div className="flex max-w-2xl flex-col items-start">
           <div className="flex flex-col items-start gap-3">
@@ -27,13 +27,13 @@ export function Hero() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
               href="#newsletter"
-              className="rounded-full bg-primary-blue px-7 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-[#2563eb]"
+              className="rounded-full bg-primary-blue px-7 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-primary-blue/90"
             >
               Đăng ký nhận tin
             </a>
             <a
               href="#features"
-              className="rounded-full border border-border-custom bg-white px-7 py-3 text-center text-sm font-semibold text-text-heading transition hover:border-primary-blue hover:text-primary-blue"
+              className="rounded-full border border-border-custom bg-background px-7 py-3 text-center text-sm font-semibold text-text-heading transition hover:border-primary-blue hover:text-primary-blue"
             >
               Khám phá tính năng
             </a>

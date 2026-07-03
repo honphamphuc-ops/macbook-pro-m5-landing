@@ -11,6 +11,18 @@
   --foreground: var(--text-heading);
 }
 
+/* Dark mode variables (when `.dark` class is present on <html> or <body>) */
+.dark {
+  --background: #0b1220;
+  --background-alt: #0f1724;
+  --primary-blue: #2563EB;
+  --primary-blue-light: #0b2546;
+  --text-heading: #e6eef8;
+  --text-body: #9aa6b2;
+  --border-custom: #1f2937;
+  --foreground: var(--text-heading);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-background-alt: var(--background-alt);
