@@ -34,7 +34,7 @@ export function Features() {
   }, []);
 
   return (
-    <section id="features" className="features-section bg-[#fafafa] relative z-10 px-6 pb-12 lg:px-8 lg:pb-20">
+    <section id="features" className="features-section bg-background-alt relative z-10 px-6 pb-12 lg:px-8 lg:pb-20">
       <div className="md:hidden max-w-7xl mx-auto pt-12 pb-10">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
@@ -47,7 +47,7 @@ export function Features() {
       </div>
 
       <div className="hidden md:grid md:grid-cols-[1.05fr_0.95fr] max-w-6xl mx-auto relative gap-18 items-stretch">
-        <div className="sticky top-0 z-20 self-start bg-[#fafafa] pt-12 lg:pt-20 pb-6 mb-[58vh] lg:mb-[60vh] md:col-start-1 md:col-span-2 md:row-start-1">
+        <div className="sticky top-0 z-20 self-start bg-background-alt pt-12 lg:pt-20 pb-6 mb-[58vh] lg:mb-[60vh] md:col-start-1 md:col-span-2 md:row-start-1">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-blue">
               Tính năng nổi bật
@@ -134,13 +134,13 @@ export function Features() {
         </div>
       </div>
 
-      <div className="md:hidden space-y-6">
+        <div className="md:hidden space-y-6">
         {featureBlocks.map((feature) => (
           <div
             key={feature.id}
-            className="border border-black/[0.04] rounded-[2rem] p-6 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.01)]"
+              className="border border-border-custom rounded-[2rem] p-6 bg-background shadow-[0_8px_30px_rgba(0,0,0,0.01)]"
           >
-            <div className="relative w-full h-44 bg-background-alt rounded-2xl mb-5 overflow-hidden border border-black/[0.02]">
+            <div className="relative w-full h-44 bg-background-alt rounded-2xl mb-5 overflow-hidden border border-border-custom">
               <Image
                 src={feature.image}
                 alt={feature.title}
