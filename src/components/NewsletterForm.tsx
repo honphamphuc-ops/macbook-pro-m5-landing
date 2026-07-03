@@ -49,7 +49,7 @@ export function NewsletterForm() {
             Nhận thông tin mới
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-heading sm:text-4xl">
-            Đăng ký để nhận tin tức về MacBook Pro M5 sớm nhất.
+            Đăng ký để nhận tin tức về NovaTech sớm nhất.
           </h2>
           <p className="mt-4 text-lg text-text-body">
             Chúng tôi chỉ gửi các cập nhật hữu ích, không spam và luôn tôn trọng quyền riêng tư của bạn.

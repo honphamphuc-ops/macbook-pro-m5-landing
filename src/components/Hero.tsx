@@ -47,7 +47,8 @@ export function Hero() {
               alt="MacBook Pro M5"
               fill
               sizes="(min-width: 1024px) 52vw, 100vw"
-              priority
+              priority={true}
+              fetchPriority="high"
               className="object-cover"
             />
           </div>

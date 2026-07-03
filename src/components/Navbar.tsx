@@ -121,7 +121,7 @@ export function Navbar() {
             }`}
             style={{ transitionDelay: isMobileMenuOpen ? "60ms" : "0ms" }}
           >
-            MacBook Pro
+            NovaTech
           </span>
 
           <div className="space-y-8 text-center">

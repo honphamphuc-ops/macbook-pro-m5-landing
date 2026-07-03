@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MacBook Pro M5 Landing
 
-## Getting Started
+Một landing page Next.js cho sản phẩm MacBook Pro M5, xây dựng với Tailwind CSS, `next/font`, và các thành phần React.
 
-First, run the development server:
+## Tổng quan
+
+- `src/app/page.tsx`: trang chính của ứng dụng.
+- `src/components/Navbar.tsx`: navbar desktop + mobile responsive.
+- `src/components/Hero.tsx`: phần hero đầu trang.
+- `src/components/Features.tsx`: section tính năng nổi bật với ảnh và nội dung động.
+- `src/components/Specs.tsx`: bảng thông số kỹ thuật.
+- `src/components/NewsletterForm.tsx`: form đăng ký nhận tin và toast xác nhận.
+- `src/lib/constants.ts`: dữ liệu tính năng và thông số.
+
+## Cài đặt
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở `http://localhost:3000` để xem trang.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Công nghệ chính
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- `next-themes`
+- `react-hook-form` + `zod`
+- `framer-motion`
+- `lucide-react`
 
-## Learn More
+## Xây dựng & triển khai
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Triển khai dễ nhất với Vercel hoặc bất kỳ nền tảng hỗ trợ ứng dụng Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Ghi chú
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Dự án đã dùng `next/font` để load font Geist.
+- `src/components/Features.tsx` hiện lấy nội dung từ `src/lib/constants.ts`.
+- Thiết kế support desktop và mobile, bao gồm menu hamburger và scroll spy.

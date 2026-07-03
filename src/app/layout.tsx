@@ -16,21 +16,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MacBook Pro M5 | Hiệu năng đột phá",
+  title: "NovaTech | Công nghệ mới",
   description:
-    "Khám phá MacBook Pro M5 với chip Apple M5, màn hình Liquid Retina XDR, pin dài lâu và trải nghiệm sáng tạo vượt trội.",
+    "Khám phá công nghệ mới với hiệu năng đột phá, màn hình sắc nét, pin bền và trải nghiệm sáng tạo vượt trội.",
+  icons: {
+    icon: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783089516/vk19qmqjgx8qvvns23jx.webp",
+    shortcut: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783089516/vk19qmqjgx8qvvns23jx.webp",
+    apple: "https://res.cloudinary.com/dh2jtjttt/image/upload/w_1000,q_auto,f_auto/v1783089516/vk19qmqjgx8qvvns23jx.webp",
+  },
   openGraph: {
-    title: "MacBook Pro M5 | Hiệu năng đột phá",
+    title: "NovaTech | Công nghệ mới",
     description:
-      "Khám phá MacBook Pro M5 với chip Apple M5, màn hình Liquid Retina XDR, pin dài lâu và trải nghiệm sáng tạo vượt trội.",
-    url: "https://example.com",
-    siteName: "MacBook Pro M5 Landing",
+      "Khám phá công nghệ mới với hiệu năng đột phá, màn hình sắc nét, pin bền và trải nghiệm sáng tạo vượt trội.",
+    url: "https://macbook-pro-m5-landing.vercel.app/",
+    siteName: "NovaTech",
     images: [
       {
         url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "MacBook Pro M5 landing page preview",
+        alt: "NovaTech landing page preview",
       },
     ],
     locale: "vi_VN",
@@ -38,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MacBook Pro M5 | Hiệu năng đột phá",
+    title: "NovaTech | Công nghệ mới",
     description:
-      "Khám phá MacBook Pro M5 với chip Apple M5, màn hình Liquid Retina XDR, pin dài lâu và trải nghiệm sáng tạo vượt trội.",
+      "Khám phá công nghệ mới với hiệu năng đột phá, màn hình sắc nét, pin bền và trải nghiệm sáng tạo vượt trội.",
     images: [ogImageUrl],
   },
 };

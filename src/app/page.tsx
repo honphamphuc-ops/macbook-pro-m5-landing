@@ -1,10 +1,19 @@
-import { Features } from "@/components/Features";
+import dynamic from "next/dynamic";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { NewsletterForm } from "@/components/NewsletterForm";
-import { Specs } from "@/components/Specs";
 import { FadeInSection } from "@/components/ui/FadeInSection";
+
+const Features = dynamic(
+  () => import("@/components/Features").then((mod) => mod.Features)
+);
+const Specs = dynamic(
+  () => import("@/components/Specs").then((mod) => mod.Specs)
+);
+const NewsletterForm = dynamic(
+  () => import("@/components/NewsletterForm").then((mod) => mod.NewsletterForm)
+);
+
 
 export default function Home() {
   return (
