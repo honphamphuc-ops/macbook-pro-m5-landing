@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap (if you generate one, update the URL below)
+Sitemap: https://macbook-pro-m5-landing.vercel.app/sitemap.xml
+
+# Crawl-delay is optional; remove if not needed
+# Crawl-delay: 10

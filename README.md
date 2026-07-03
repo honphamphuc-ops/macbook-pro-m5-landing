@@ -1,47 +1,56 @@
-# MacBook Pro M5 Landing
+# NovaTech — MacBook Pro M5 Landing
 
-Một landing page Next.js cho sản phẩm MacBook Pro M5, xây dựng với Tailwind CSS, `next/font`, và các thành phần React.
+This repository contains a production-ready Next.js landing page for the MacBook Pro M5 (NovaTech). The project is optimized for performance, accessibility, and SEO with Tailwind CSS, server-side rendering, and modern image delivery.
 
-## Tổng quan
+**Quick overview**
+- `src/app/page.tsx`: main landing page layout and section composition
+- `src/components/Hero.tsx`: hero/lead section (large image, CTA)
+- `src/components/Features.tsx`: feature scrollytelling with images
+- `src/components/Specs.tsx`: technical specifications table
+- `src/components/NewsletterForm.tsx`: email capture with validation + toast
+- `src/lib/constants.ts`: canonical content (feature blocks, specs)
 
-- `src/app/page.tsx`: trang chính của ứng dụng.
-- `src/components/Navbar.tsx`: navbar desktop + mobile responsive.
-- `src/components/Hero.tsx`: phần hero đầu trang.
-- `src/components/Features.tsx`: section tính năng nổi bật với ảnh và nội dung động.
-- `src/components/Specs.tsx`: bảng thông số kỹ thuật.
-- `src/components/NewsletterForm.tsx`: form đăng ký nhận tin và toast xác nhận.
-- `src/lib/constants.ts`: dữ liệu tính năng và thông số.
-
-## Cài đặt
+Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Mở `http://localhost:3000` để xem trang.
+Open `http://localhost:3000` to preview the site.
 
-## Công nghệ chính
-
-- Next.js 16
-- React 19
-- Tailwind CSS 4
-- `next-themes`
-- `react-hook-form` + `zod`
-- `framer-motion`
-- `lucide-react`
-
-## Xây dựng & triển khai
+Build & production
 
 ```bash
 npm run build
 npm run start
 ```
 
-Triển khai dễ nhất với Vercel hoặc bất kỳ nền tảng hỗ trợ ứng dụng Next.js.
+Deploy: Vercel is recommended for the best Next.js experience (Edge, Image CDN).
 
-## Ghi chú
+Key technologies
 
-- Dự án đã dùng `next/font` để load font Geist.
-- `src/components/Features.tsx` hiện lấy nội dung từ `src/lib/constants.ts`.
-- Thiết kế support desktop và mobile, bao gồm menu hamburger và scroll spy.
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- next-themes (dark mode)
+- react-hook-form + zod (form validation)
+- next/image (optimized images)
+
+SEO & performance notes
+
+- Metadata and Open Graph images are configured in `src/app/layout.tsx` for rich previews.
+- The Hero image is prioritized (LCP) and other sections are lazily loaded to improve Core Web Vitals.
+- A `public/robots.txt` and a sitemap (if you add one at `/sitemap.xml`) help crawlers index the site — see `public/robots.txt` in this repo.
+- Remove or defer third-party scripts that block rendering to maximize Lighthouse scores.
+
+Contributing
+
+- Keep component responsibilities small and use `src/lib/constants.ts` for static content.
+- When adding new pages or routes, prefer server components unless client interactivity is required.
+
+License & attribution
+
+This repo is a template/demo. Replace copy, images, and brand assets before publishing.
+
+If you'd like, I can also generate a `sitemap.xml` and add canonical tags or help prepare a deploy on Vercel.
