@@ -9,7 +9,7 @@ export function Specs() {
             Thông số kỹ thuật
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-heading sm:text-4xl">
-            Chi tiết kỹ thuật rõ ràng và đầy đủ.
+            Cấu hình tối thượng, sẵn sàng tùy biến cho mọi luồng công việc phức tạp nhất.
           </h2>
         </div>
 
